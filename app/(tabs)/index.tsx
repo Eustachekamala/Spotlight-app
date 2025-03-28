@@ -6,16 +6,9 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <Link
-        style={{
-          padding: 8,
-          backgroundColor: "black",
-          color: "white",
-          borderRadius: 15,
-        }}
         href="/notifications"
       >
-        {" "}
-        Visit Notification Screen
+        Feed Screen in Tabs
       </Link>
     </View>
   );

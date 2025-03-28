@@ -14,7 +14,11 @@ export default function TabLayout() {
             tabBarStyle: {
                 backgroundColor: COLORS.surface,
                 borderTopColor: COLORS.surfaceLight,
-                borderTopWidth: 1
+                borderTopWidth: 0,
+                position: 'absolute',
+                elevation: 0,
+                height: 40,
+                paddingBottom : 10
             }
         }}
     >
