@@ -1,35 +1,35 @@
 import { mutation } from "./_generated/server";
 import { v } from "convex/values";
 
-// Create a new User
 export const createUser = mutation({
     args: {
-        username : v.string(),
+        username: v.string(),
         fullname: v.string(),
         image: v.string(),
         bio: v.optional(v.string()),
-        email : v.string(),
+        email: v.string(),
         clerkId: v.string(),
     },
 
-    handler: async(ctx, args) => {
-       const userExists = await ctx.db
-        .query("users")
-        .withIndex("by_clerk_id", (q) => q.eq("clerkId", args.clerkId))
-        .first();
+    handler: async (ctx, args) => {
+        const userExists = await ctx.db
+            .query("users")
+            .withIndex("by_clerk_id", (q) => q.eq("clerkId", args.clerkId))
+            .first();
 
-       if (userExists) return
-        //Create a user in db
+        if (userExists) return;
+
+        // Create a user in db
         await ctx.db.insert("users", {
             username: args.username,
             fullname: args.fullname,
             email: args.email,
-            bio : args.bio,
-            image : args.image,
+            bio: args.bio,
+            image: args.image,
             clerkId: args.clerkId,
-            followers : 0,
+            followers: 0,
             following: 0,
             posts: 0
-        })
+        });
     }
 });

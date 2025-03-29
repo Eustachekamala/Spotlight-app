@@ -1,18 +1,18 @@
-import { defineSchema, defineTable,  } from "convex/server"
+import { defineSchema, defineTable  } from "convex/server"
 import { v } from "convex/values"
 
 export default defineSchema({
     //Users table
     users : defineTable({
-        username : v.string(),
+        username: v.string(),
         fullname: v.string(),
-        email : v.string(),
+        email: v.string(),
         bio: v.optional(v.string()),
         image: v.string(),
-        followers : v.number(),
-        following : v.number(),
+        followers: v.number(),
+        following: v.number(),
         posts: v.number(),
-        clerkId : v.string()
+        clerkId: v.string()
     }).index("by_clerk_id", ["clerkId"]),
 
     //post table
@@ -23,7 +23,8 @@ export default defineSchema({
         caption : v.optional(v.string()),
         likes: v.number(),
         comments: v.number(),
-    }).index("by_user",["userId"]),
+    })
+    .index("by_user",["userId"]),
 
     //likes table
     likes : defineTable({
