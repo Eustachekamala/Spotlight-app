@@ -1,5 +1,5 @@
 import { TouchableOpacity, View, Text, ScrollView } from "react-native";
-import { styles } from "@/styles/feed,styles";
+import { styles } from "@/styles/feed.styles";
 import { useAuth } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "@/constants/theme";

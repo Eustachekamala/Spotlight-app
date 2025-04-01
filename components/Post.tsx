@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity } from 'react-native'
-import { styles } from '@/styles/feed,styles'
+import { styles } from '@/styles/feed.styles'
 import { Link } from 'expo-router'
 import { Image } from 'expo-image'
 import { Ionicons } from '@expo/vector-icons'
