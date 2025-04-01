@@ -56,9 +56,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#000000",
   },
   splashIcon: {
-    width: 200,
-    height: 200,
-    marginBottom: 20,
+    width: 150,
+    height: 150,
+    marginBottom: 10,
   },
   splashText: {
     fontSize: 24,
