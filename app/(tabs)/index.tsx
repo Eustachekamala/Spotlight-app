@@ -1,15 +1,13 @@
-import { TouchableOpacity, View, Text, ScrollView } from "react-native";
+import Loader from "@/components/Loader";
+import Post from "@/components/Post";
+import { StoriesSection } from "@/components/Stories";
+import { COLORS } from "@/constants/theme";
+import { api } from "@/convex/_generated/api";
 import { styles } from "@/styles/feed.styles";
 import { useAuth } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
-import { COLORS } from "@/constants/theme";
-import { STORIES } from "@/constants/mock-data";
-import Story from "@/components/Story";
 import { useQuery } from "convex/react";
-import { api } from "@/convex/_generated/api";
-import Loader from "@/components/Loader";
-import Post from "@/components/Post";
-import { FlatList } from "react-native";
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
 
 export default function Index() {
   const { signOut } = useAuth();
@@ -44,17 +42,7 @@ export default function Index() {
     </View>
   );
 }
-const StoriesSection = () => (
-  <ScrollView
-    horizontal
-    showsVerticalScrollIndicator={false}
-    style={styles.storiesContainer}
-  >
-    {STORIES.map((story) => (
-      <Story key={story.id} story={story} />
-    ))}
-  </ScrollView>
-);
+
 
 const NoPostsFound = () => (
   <View
