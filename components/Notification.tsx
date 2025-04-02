@@ -11,8 +11,7 @@ function Notification({notification} : any){
     <View style={styles.notificationItem}>
       <View style={styles.notificationContent}>
         <Link
-          href={`/notifications`} asChild
-          // href={`/user/${notification.sender._id}`} 
+          href={`/user/${notification.sender._id}`} asChild
         >
           <TouchableOpacity style={styles.avatarContainer}>
             <Image
@@ -33,7 +32,7 @@ function Notification({notification} : any){
           </TouchableOpacity>
         </Link>
         <View style={styles.notificationInfo}>
-          <Link href={`/notifications`} asChild>
+          <Link  href={`/user/${notification.sender._id}`} asChild>
             <TouchableOpacity>
               <Text style={styles.username}>{notification.sender.username}</Text>
             </TouchableOpacity>

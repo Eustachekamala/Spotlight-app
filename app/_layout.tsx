@@ -1,13 +1,12 @@
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import InitialLayout from "@/components/InitialLayout";
-import ClerkAndConvexProvider from "@/providers/ClerkAndConvexProvider";
-import { StatusBar, StyleSheet, Text, View} from "react-native";
+import InitialLayout from "../components/InitialLayout";
+import ClerkAndConvexProvider from "../providers/ClerkAndConvexProvider";
+import { Platform, StatusBar, StyleSheet, Text, View } from "react-native";
 import { SplashScreen } from "expo-router";
 import { useFonts } from "expo-font";
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { Image } from "expo-image";
-
-SplashScreen.preventAutoHideAsync();
+import * as NavigationBar from "expo-navigation-bar";
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -17,9 +16,20 @@ export default function RootLayout() {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
+    SplashScreen.preventAutoHideAsync();
+  }, []);
+
+  useEffect(() => {
+    if (Platform.OS === "android") {
+      NavigationBar.setBackgroundColorAsync("#000000");
+      NavigationBar.setButtonStyleAsync("light");
+    }
+  }, []);
+
+  useEffect(() => {
     if (fontsLoaded) {
       setTimeout(() => {
-        setIsReady(true)
+        setIsReady(true);
         SplashScreen.hideAsync();
       }, 3000);
     }
@@ -34,10 +44,9 @@ export default function RootLayout() {
     );
   }
 
-
   return (
     <ClerkAndConvexProvider>
-      <StatusBar translucent={true} backgroundColor="transparent" barStyle="light-content" />
+      <StatusBar translucent={true} backgroundColor="transparent"/>
       <SafeAreaProvider>
         <SafeAreaView style={{ flex: 1, backgroundColor: "#000000" }}>
           <InitialLayout />
@@ -46,7 +55,6 @@ export default function RootLayout() {
     </ClerkAndConvexProvider>
   );
 }
-
 
 const styles = StyleSheet.create({
   splashContainer: {
@@ -64,5 +72,5 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: "green",
     fontWeight: "bold",
-    },
+  },
 });

@@ -92,3 +92,24 @@ If you don't provide these icons, your app will still work, but it will use Expo
 
 - Create smooth anmimations with an excellent developer experience.
 - Learn more: [React Native Reanimated Documentaion](<https://docs.swansion.com/react-native-reanimated/>)
+
+---
+
+## Building & Publishing
+
+- Youc can build your app for production with Expo Application Services (EAS)
+- If you want to submit it to Google Play Store / App Store you'll need a developer account
+- It would take couple of days/weeks till your app gets accepted and go live
+- [Build Project Documentation](https://docs.expo.dev/deploy/build-project/)
+- [Submit to App Stores Documentation](https://docs.expo.dev/deploy/submit-to-app-stores/)
+- Building your app with
+
+### Steps
+
+- visit expo.dev and signup
+- npm i -g eas-cli
+- eas login
+- eas init & it'll ask you to create a project, just say yes
+- eas build --platfrom android => builds for android => will give you APK file
+- eas build --platfrom ios => builds for Ios => will give you IPA file
+- Then you'd take those files and submit to play store or app store

@@ -60,7 +60,7 @@ export default defineSchema({
     })
         .index("by_receiver", ["receiverId"])
         .index("by_post", ["postId"])
-    ,
+        .index("by_sender_receiver", ["senderId","receiverId"]),
 
     //bookmarks table
 
