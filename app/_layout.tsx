@@ -31,7 +31,7 @@ export default function RootLayout() {
       setTimeout(() => {
         setIsReady(true);
         SplashScreen.hideAsync();
-      }, 3000);
+      }, 4000);
     }
   }, [fontsLoaded]);
 
